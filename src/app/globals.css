@@ -54,7 +54,6 @@
   /* Typography */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-
   --text-display: var(--text-display);
   --text-h1: var(--text-h1);
   --text-h2: var(--text-h2);
@@ -71,6 +70,8 @@
 
 html {
   background: var(--color-bg);
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -78,4 +79,20 @@ body {
   background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-geist-sans), sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
